@@ -1,0 +1,11 @@
+#!/bin/bash
+export XMAME_WAS_RUN=1
+if [[ -f /media/usb0/pandory/pandory.sh ]]
+then
+	/bin/bash /media/usb0/pandory/pandory.sh "$@"
+elif [[ -f /mnt/sdcard/pandory/pandory.sh ]]
+then
+	/bin/bash /mnt/sdcard/pandory/pandory.sh "$@"
+else
+	/usr/bin/xmame.SDL "$@"
+fi

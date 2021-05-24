@@ -1,0 +1,13 @@
+#!/bin/bash
+export RETROARCH_WAS_RUN=1
+if [[ -f /media/usb0/pandory/pandory.sh ]]
+then
+    /bin/bash /media/usb0/pandory/pandory.sh "$@"
+elif [[ -f /mnt/sdcard/pandory/pandory.sh ]]
+then
+    /bin/bash /mnt/sdcard/pandory/pandory.sh "$@"
+else
+	# Stock emulator and use the stock configuration too, as /tmp/retroach
+	# usually brings its own (broken) configuration.
+	/usr/bin/retroarch --fullscreen -c /usr/retroarch/retroarch.cfg "$4" "$5" "$6"
+fi
